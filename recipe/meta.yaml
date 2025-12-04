@@ -18,11 +18,11 @@ build:
 
 requirements:
   host:
-    - python >=3.8,<4.0
+    - python {{ python_min }}
     - poetry-core
     - pip
   run:
-    - python >=3.8.1,<4.0.0
+    - python >={{ python_min }}
     - requests >=2.31.0,<3.0.0
     - python-dateutil >=2.9.0,<3.0.0
     - python-iso639 >=2023.6.15
@@ -41,6 +41,7 @@ test:
     - rocrate_inveniordm --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://www.researchobject.org/ro-crate/
