@@ -1,13 +1,13 @@
 {% set name = "rocrate-inveniordm" %}
-{% set version = "2.0.3" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/rocrate_inveniordm-{{ version }}.tar.gz
-  sha256: 6722b5810880be11bdd66a725c072a64896e85642f37662b0cc3592661195b9a
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/rocrate_inveniordm-{{ version }}.tar.gz
+  sha256: ae5764f70572f990f10f658891e34118c25679262868f7e693e38b7eadf03cda
 
 build:
   entry_points:
@@ -18,11 +18,11 @@ build:
 
 requirements:
   host:
-    - python >=3.8,<4.0
+    - python {{ python_min }}
     - poetry-core
     - pip
   run:
-    - python >=3.8.1,<4.0.0
+    - python >={{ python_min }}
     - requests >=2.31.0,<3.0.0
     - python-dateutil >=2.9.0,<3.0.0
     - python-iso639 >=2023.6.15
@@ -41,6 +41,7 @@ test:
     - rocrate_inveniordm --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://www.researchobject.org/ro-crate/
